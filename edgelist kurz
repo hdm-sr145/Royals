@@ -487,7 +487,7 @@ PM,QS,4,Mother
 PV,PD,4,Husband
 PD,PV,4,Wife
 PCP,PS,4,Wife
-PC,PCP,4,Husband
+PS,PCP,4,Husband
 PM,CON,4,Husband
 CON,PM,4,Wife
 PD,PS,3,Sister in Law
