@@ -1,5 +1,5 @@
 id,name,sex,country 1,country 2,line of succession,interest 1,interest 2,interest 3,interest 4,religion,type,royalhouse
-QS,Her Majesty Queen Silvia,female,swedish,,,children and young people,education,healthcare medical and hospices,,evangelical lutheran,0,swedish
+QS,Queen Silvia,female,swedish,,,children and young people,education,healthcare medical and hospices,,evangelical lutheran,0,swedish
 wcf,World Childhood Foundation,,swedish,,,children and young people,,,,,1,
 imf,International Mentor Foundation,,swedish,,,healthcare medical and hospices,,,,,1,
 gcf,Global Child Forum,,international,,,children and young people,,,,,1,
@@ -267,11 +267,11 @@ stb,Sentebale,,international,,,children and young people,,,,,1,
 wc,WellChild,,british,,,children and young people,,,,,1,
 ap,African Parks,,international,,,history and heritage,,,,,1,
 rcb,Rhino Conservation Botswana,,international,,,animals,,,,,1,
-DM,Dutchess Meghan,female,british,,,children and young people,community and civic,professional institutions,,anglican,0,british
+DM,Duchess Meghan,female,british,,,children and young people,community and civic,professional institutions,,anglican,0,british
 oyw,One Young World,,british,,,children and young people,,,,,1,
 unw,UN Women,,international,,,community and civic,,,,,1,
 wv,World Vision,,international,,,education,,,,,1,
-KCG,King Carl XVI Gustaf ,male,swedish,,0,agriculture,sport and recreation,arts and culture,environment,evangelical lutheran,0,swedish
+KCG,Carl Gustaf,male,swedish,,0,agriculture,sport and recreation,arts and culture,environment,evangelical lutheran,0,swedish
 amarfs,The African Medical and Research Foundation Sweden,,swedish,,,healthcare medical and hospices,,,,,1,
 aisc,Allmaenna Idrottsklubben sports club,,swedish,,,sport and recreation,,,,,1,
 ncda,The National Childrens Day Association,,international,,,children and young people ,,,,,1,
@@ -380,7 +380,7 @@ srnc,Scotland Royal Naval Command,,british,,,armed services,,,,,1,
 surnc,Submarines Royal Naval Command,,british,,,armed services,,,,,1,
 rcopasog,Royal College of Physicians ans Surgeons of Glasgow,,british,,,healthcare medical and hospices,,,,,1,
 trmnhsft,The Royal Marsden NHS Foundation Trust,,british,,,healthcare medical and hospices,,,,,1,
-DCA,Dutchess Catherine,female,british,,,healthcare medical and hospices,sport and recreation,children and young people,arts and culture,anglican,0,british
+DCA,Duchess Catherine,female,british,,,healthcare medical and hospices,sport and recreation,children and young people,arts and culture,anglican,0,british
 100wif,100 Women in Finance,,british,,,healthcare medical and hospices,,,,,1,
 afch,Action for Children,,british,,,healthcare medical and hospices,,,,,1,
 afncfcaf,Anna Freud National Centre for Children and Families,,british,,,children and young people,,,,,1,
