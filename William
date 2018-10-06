@@ -1,0 +1,54 @@
+# vergleich der egno-netzwerke von QE und KCG
+
+# einlesen von edge- und node-list aus github
+library(igraph) # grundlegendes Basispakete
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelist%20kurz", header=TRUE)
+# wandelt den dataframe el in das igraph-objekt eli um
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodesaktuell", header=T, as.is=T, sep = ",")
+
+# ruft das igraph-objekt roy auf
+roy <- graph.data.frame(el, nodes, directed=TRUE)
+roy
+
+pw <- make_ego_graph(roy, nodes = V(roy)$name == "PW", mode = "all")
+pw
+
+
+
+# farbunterteilung nach organisationskategorien
+vertex.attributes(roy)$interest.1 == "environment"
+vertex.attributes(roy)$interest.2 == "environment"
+vertex.attributes(roy)$interest.3 == "environment"
+vertex.attributes(roy)$interest.4 == "environment"
+
+
+
+
+pw1 <- delete.vertices(roy, V(roy)[interest.1 >= "environment"])
+pw1
+
+plot(pw1[[1]], 
+     layout = layout_with_fr,
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label=E(roy)$weight,
+     edge.label.color="black",
+     edge.label.degree=0,
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.color="lightblue",
+     vertex.frame.color="white",
+     vertex.label.dist=3,
+     vertex.label.degree=0,
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Prince William")
+
+pw2 <- delete.vertices(roy, V(roy)[interest.2 >= "environment"])
+plot(pw1)
