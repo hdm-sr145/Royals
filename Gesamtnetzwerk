@@ -1,0 +1,25 @@
+# analyse des gesamtnetzwerks zwischen dem britischen und schwedischen königshaus
+
+# einlesen von edge- und node-list aus github
+library(igraph) # grundlegendes Basispakete
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelist%20kurz", header=TRUE)
+# wandelt den dataframe el in das igraph-objekt eli um
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodz.csv", header=T, as.is=T, sep = ",")
+
+# ruft das igraph-objekt roy auf
+roy <- graph.data.frame(el, nodes, directed=TRUE)
+roy
+plot(roy)
+# listet alle attribute der edge-list auf
+list.edge.attributes(roy)
+
+# listet alle attribute der node-list auf
+list.vertex.attributes(roy)
+
+plot(roy,
+     layout = layout_with_fr,
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     main="Gesamtnetzwerk")
