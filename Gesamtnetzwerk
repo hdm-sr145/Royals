@@ -33,13 +33,21 @@ V(roy)[sweds]$color = "red"
 V(roy)[V(roy)$type == 1]$shape <- "square"
 V(roy)[V(roy)$type == 0]$shape <- "circle"
 
+# entzerren
+coords <- layout_with_kk(roy)*5
+
 # ausführung
 plot(roy, 
-     layout = layout_with_fr,
+     layout = coords,
      vertex.label = NA,
+     vertex.size = 250,
      vertex.frame.color="white",
      edge.arrow.size=.2, 
      edge.curved=.2,     
      edge.color="grey",  
-     edge.width=E(roy)$weight,
-     main="Gesamtnetzwerk")
+     edge.width=E(roy)$weight*0.3,
+     sub="Gesamtnetzwerk",
+     rescale=FALSE,
+     ylim=c(-50,50), xlim=c(-50,50))
+     
+
