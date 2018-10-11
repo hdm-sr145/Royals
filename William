@@ -2,7 +2,7 @@
 
 # einlesen von edge- und node-list aus github
 library(igraph) # grundlegendes Basispakete
-el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelist%20kurz", header=TRUE)
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgeohnebeziehung", header=TRUE)
 # wandelt den dataframe el in das igraph-objekt eli um
 nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodesaktuell", header=T, as.is=T, sep = ",")
 
@@ -10,13 +10,15 @@ nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/no
 roy <- graph.data.frame(el, nodes, directed=TRUE)
 roy
 
-pw <- make_ego_graph(roy, nodes = V(roy)$name == "PW", mode = "all")
-pw
 
+
+willi <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "PW", mode = "all")
+willi
+plot(willi[[1]])
 
 
 # farbunterteilung nach organisationskategorien
-vertex.attributes(roy)$interest.1 == "environment"
+vertex.attributes(willi)$interest.1 == "environment"
 vertex.attributes(roy)$interest.2 == "environment"
 vertex.attributes(roy)$interest.3 == "environment"
 vertex.attributes(roy)$interest.4 == "environment"
@@ -26,29 +28,35 @@ vertex.attributes(roy)$interest.4 == "environment"
 
 pw1 <- delete.vertices(roy, V(roy)[interest.1 >= "environment"])
 pw1
+coords <- layout_with_kk(pw)*5
 
-plot(pw1[[1]], 
-     layout = layout_with_fr,
+V(roy)[V(roy)$interest.1 == "environment"]$color <- "green"
+V(roy)[V(roy)$interest.1 == "children.and.young.people"]$color <- "black"
+plot(roy)
+
+
+V(roy)[interest.1 == "environment"]$color <- "green"
+V(roy)[interest.2 == "children.and.young.people"]$color <- "dodgerblue"
+V(roy)[interest.3 == "armed.services"]$color <- "blue"
+V(roy)[interest.4 == "healthcare.medical.and.hospices"]$color <- "yellow"
+
+plot(roy)
+
+plot(willi[[1]], 
      edge.arrow.size=.2, 
      edge.curved=.2,     
      edge.color="grey",  
      edge.width=E(roy)$weight,
      vertex.shape="circle",
-     edge.label=E(roy)$weight,
      edge.label.color="black",
-     edge.label.degree=0,
      edge.label.cex=.8,
      edge.label.family="Helvetica",
      edge.label.font=1,
      vertex.color="lightblue",
      vertex.frame.color="white",
-     vertex.label.dist=3,
-     vertex.label.degree=0,
      vertex.label.cex=.5,
      vertex.label.family="Helvetica",
      vertex.label.font=2,
      vertex.label.color="black",
      main="Prince William")
 
-pw2 <- delete.vertices(roy, V(roy)[interest.2 >= "environment"])
-plot(pw1)
