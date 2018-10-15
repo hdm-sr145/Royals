@@ -11,21 +11,22 @@ roy <- graph.data.frame(el, nodes, directed=TRUE)
 roy
 
 # farbunterteilung nach organisationskategorien
+# environment in hellgrün
 envi <- V(roy)[environment=="1"]
 envi
-V(roy)[envi]$color="green"
-
+V(roy)[envi]$color="#99FF66"
+# children and young people in türkis
 child <- V(roy)[children.and.young.people=="1"]
 child
-V(roy)[child]$color="yellow"
-
+V(roy)[child]$color="#33CCFF"
+# armed services in dunkelbraun
 army <- V(roy)[armed.services=="1"]
 army
-V(roy)[army]$color="grey"
-
+V(roy)[army]$color="#CC9966"
+# healthcare in rosa
 health <- V(roy)[healthcare.medical.and.hospices=="1"]
 health
-V(roy)[health]$color="red"
+V(roy)[health]$color="#FF9999"
 
 willi <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "PW", mode = "all")
 willi
@@ -48,3 +49,5 @@ plot(willi[[1]],
      vertex.label.font=2,
      vertex.label.color="black",
      main="Prince William")
+
+
