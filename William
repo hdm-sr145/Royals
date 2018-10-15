@@ -26,7 +26,7 @@ V(roy)[army]$color="#CC9966"
 # healthcare in rosa
 health <- V(roy)[healthcare.medical.and.hospices=="1"]
 health
-V(roy)[health]$color="#FF9999"
+V(roy)[health]$color="#FFCCCC"
 
 willi <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "PW", mode = "all")
 willi
