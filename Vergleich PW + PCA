@@ -1,0 +1,129 @@
+# vergleich ego-netzwerke prince william und duchess catherine
+
+# einlesen von edge- und node-list aus github
+library(igraph) # grundlegendes Basispakete
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelistneu.csv", header=TRUE)
+# wandelt den dataframe el in das igraph-objekt eli um
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodelistneu.csv", header=T, as.is=T, sep = ",")
+
+# ruft das igraph-objekt roy auf
+roy <- graph.data.frame(el, nodes, directed=TRUE)
+roy
+
+# farbunterteilung nach organisationskategorien
+
+# environment in hellgrün
+envi <- V(roy)[environment=="1"]
+envi
+V(roy)[envi]$color="#99FF66"
+
+# children and young people in türkis
+child <- V(roy)[children.and.young.people=="1"]
+child
+V(roy)[child]$color="#33CCFF"
+
+# armed services in dunkelbraun
+army <- V(roy)[armed.services=="1"]
+army
+V(roy)[army]$color="#CC9966"
+
+# healthcare in rosa
+health <- V(roy)[healthcare.medical.and.hospices=="1"]
+health
+V(roy)[health]$color="#FFCCCC"
+
+# sport in rot-orange
+sport <- V(roy)[sport.and.recreation=="1"]
+sport
+V(roy)[sport]$color="#FF3300"
+
+# arts and culture in pink
+arts <- V(roy)[arts.and.culture=="1"]
+arts
+V(roy)[arts]$color="#FF66CC"
+
+
+# ego-netzwerk duchess catherine 
+
+cathy <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "DCA", mode = "all")
+cathy
+
+coords <- layout_with_kk(roy)*5
+
+plot(cathy[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Duchess Catherine")
+
+
+# ego-netzwerk prince william
+
+willi <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "PW", mode = "all")
+willi
+
+coords <- layout_with_kk(roy)*5
+
+plot(willi[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Prince William")
+
+# vergleich 
+
+par(mfrow=c(1,2),mar=c(0,0,2,0))
+plot(willi[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Prince William")
+plot(cathy[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Duchess Catherine")
