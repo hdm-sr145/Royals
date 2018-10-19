@@ -1,0 +1,190 @@
+# vergleich king carl gustaf und prince charles
+
+# einlesen von edge- und node-list aus github
+library(igraph) # grundlegendes Basispakete
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelistneu.csv", header=TRUE)
+# wandelt den dataframe el in das igraph-objekt eli um
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodelistneu.csv", header=T, as.is=T, sep = ",")
+
+# ruft das igraph-objekt roy auf
+roy <- graph.data.frame(el, nodes, directed=TRUE)
+roy
+
+# farbunterteilung nach organisationskategorien
+
+# science & technology in hellgrau
+science <- V(roy)[science.and.technology=="1"]
+science
+V(roy)[science]$color="#CCCCCC"
+
+# social clubs in orange
+clubs <- V(roy)[social.clubs=="1"]
+clubs
+V(roy)[clubs]$color="orange"
+
+# professional institutions in mint
+institutions <- V(roy)[professional.institutions=="1"]
+institutions
+V(roy)[institutions]$color="#99FFCC"
+
+# history and heritage in ocker
+history <- V(roy)[history.and.heritage=="1"]
+history
+V(roy)[history]$color="#CC9900"
+
+# sport in rot-orange
+sport <- V(roy)[sport.and.recreation=="1"]
+sport
+V(roy)[sport]$color="#FF3300"
+
+# healthcare in rosa
+health <- V(roy)[healthcare.medical.and.hospices=="1"]
+health
+V(roy)[health]$color="#FFCCCC"
+
+# faith in lila
+glaub <- V(roy)[faith=="1"]
+glaub
+V(roy)[glaub]$color="#993399"
+
+# built environment and architecture in grau-braun
+built <- V(roy)[built.environment.and.architecture=="1"]
+built
+V(roy)[built]$color="#996666"
+
+# business and industry in dunkelgrau
+business <- V(roy)[business.and.industry=="1"]
+business
+V(roy)[business]$color="#666666"
+
+# arts and culture in pink
+arts <- V(roy)[arts.and.culture=="1"]
+arts
+V(roy)[arts]$color="#FF66CC"
+
+# armed services in dunkelbraun
+army <- V(roy)[armed.services=="1"]
+army
+V(roy)[army]$color="#FFCC99"
+
+# animals in moosgrün
+tier <- V(roy)[animals=="1"]
+tier
+V(roy)[tier]$color="#669900"
+
+# children and young people in türkis
+child <- V(roy)[children.and.young.people=="1"]
+child
+V(roy)[child]$color="#33CCFF"
+
+# environment in hellgrün
+envi <- V(roy)[environment=="1"]
+envi
+V(roy)[envi]$color="#99FF66"
+
+# agriculture in dunkelgrün
+agri <- V(roy)[agriculture=="1"]
+agri
+V(roy)[agri]$color="#006600"
+
+# elderly and retired people in dunkelrot
+oldies <- V(roy)[elderly.and.retired.people=="1"]
+oldies
+V(roy)[oldies]$color="#990000"
+
+# education and training in hellblau
+edu <- V(roy)[education=="1"]
+edu
+V(roy)[edu]$color="lightblue"
+
+# community and civic in gelb
+civic <- V(roy)[community.and.civic=="1"]
+civic
+V(roy)[civic]$color="#FFFF33"
+
+
+# ego-netzwerk prince charles
+
+charly <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "PC", mode = "all")
+charly
+
+coords <- layout_with_kk(roy)*5
+
+plot(charly[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Prince Charles")
+
+
+# ego-netzwerk king carl gustaf
+
+carly <- make_ego_graph(roy, order = 1, nodes = V(roy)$name == "KCG", mode = "all")
+carly
+
+coords <- layout_with_kk(roy)*5
+
+plot(carly[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="King Carl Gustaf")
+
+# vergleich 
+
+par(mfrow=c(1,2),mar=c(0,0,2,0))
+plot(charly[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="Prince Charles")
+plot(carly[[1]], 
+     edge.arrow.size=.2, 
+     edge.curved=.2,     
+     edge.color="grey",  
+     edge.width=E(roy)$weight,
+     vertex.shape="circle",
+     edge.label.color="black",
+     edge.label.cex=.8,
+     edge.label.family="Helvetica",
+     edge.label.font=1,
+     vertex.frame.color="black",
+     vertex.label.cex=.5,
+     vertex.label.family="Helvetica",
+     vertex.label.font=2,
+     vertex.label.color="black",
+     main="King Carl Gustaf")
+
