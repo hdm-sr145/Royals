@@ -22,6 +22,11 @@ clubs <- V(roy)[social.clubs=="1"]
 clubs
 V(roy)[clubs]$color="orange"
 
+# royal foundation in royalblau
+rofo <- V(roy)[royal.foundation=="1"]
+rofo
+V(roy)[rofo]$color="#0000FF"
+
 # professional institutions in mint
 institutions <- V(roy)[professional.institutions=="1"]
 institutions
