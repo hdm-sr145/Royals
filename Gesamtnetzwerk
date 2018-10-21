@@ -46,8 +46,8 @@ plot(roy,
      edge.curved=.2,     
      edge.color="grey",  
      edge.width=E(roy)$weight*0.3,
-     sub="Gesamtnetzwerk",
+     main="Gesamtnetzwerk",
      rescale=FALSE,
-     ylim=c(-50,50), xlim=c(-50,50))
+     ylim=c(-55,55), xlim=c(-55,55))
 
 
