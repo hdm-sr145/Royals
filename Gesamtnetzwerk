@@ -4,7 +4,7 @@
 library(igraph) # grundlegendes Basispakete
 el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelist%20kurz", header=TRUE)
 # wandelt den dataframe el in das igraph-objekt eli um
-nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodesaktuell", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodelistneu.csv", header=T, as.is=T, sep = ",")
 
 # ruft das igraph-objekt roy auf
 roy <- graph.data.frame(el, nodes, directed=TRUE)
@@ -49,6 +49,5 @@ plot(roy,
      sub="Gesamtnetzwerk",
      rescale=FALSE,
      ylim=c(-50,50), xlim=c(-50,50))
-     
 
 
