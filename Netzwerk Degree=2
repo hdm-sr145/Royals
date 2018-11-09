@@ -51,7 +51,7 @@ plot(ciao,
      edge.arrow.size=.2, 
      edge.curved=.2,     
      edge.color="grey",  
-     edge.width=E(deg)$weight*0.3,
+     edge.width=E(ciao)$weight*0.3,
      sub="Gesamtnetzwerk",
      rescale=FALSE,
      ylim=c(-70,70), xlim=c(-70,70))
