@@ -1,0 +1,25 @@
+1,,
+,,
+,,
+,,
+Wert,Kommentar,
+edgelist,,
+from,"definiert den Sender in Netzwerken. Entspricht name in der Nodelist. Keine Sonderzeichen, nur ein Wort",
+to ,"definiert den Empfänger in Netzwerken. Entspricht name in der Nodelist. Keine Sonderzeichen, etc. ",
+relationship,Welche Positon hat der Knoten in dieser Organisation,
+weight,Gewichtung je nach Position in der Organisation:,
+,"Member, Trustee",1
+,"Honorary Member, Patron, Military Position, Royal Friend ",2
+,"Patron in Chief, Colonel in Chief, President, Chairman, Founder, Daughter-in-Law, Son-in-Law, Mother-in-Law, Father-in-Law, Grandmother-in-Law, Grandfather-in-Law, Grandchild-in-Law, Stepmother, Stepson",3
+,"Husband, Wife, Son, Daughter, Mother, Father, Grandchild, Grandmother, Grandfather, Brother, Sister",4
+nodelist,,
+name,"eindeutige Identifikation jedes einzelnen Knotens (vertex), der erfasst wird. Personen Großbuchstaben, Organisationen Kleinbuchstaben",
+title,Name oder Bezeichnung des Knotens. ,
+sex,,
+royalhouse,"Angabe, zu welchen Königshaus der Knoten gehört",
+line of succession,"Angabe, an welcher Stelle der Thronfolge der Knoten ist",
+religion,dichotome Ausprägung: male oder female.,
+interests,"Angabe, welche Interessen die Person hat",
+type,"Organisation = 1 , Person= 0",
+country 1+2,"Angabe, zu welchem Land der Knoten gehört",
+Interessen: ,"1= trifft zu , Person oder Organisation gehört zu dieser Kategorie, 0= trifft nicht zu, Person der Organisation gehört nicht zu dieser Organisation",
