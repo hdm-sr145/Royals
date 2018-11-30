@@ -2,9 +2,9 @@
 
 # einlesen von edge- und node-list aus github
 library(igraph) # grundlegendes Basispakete
-el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/edgelist%20kurz", header=TRUE)
+el <- read.csv ("https://raw.githubusercontent.com/hdm-sr145/Royals/master/edgelang", header=TRUE)
 # wandelt den dataframe el in das igraph-objekt eli um
-nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Limonea/master/nodelist%20kurz", header=T, as.is=T, sep = ",")
+nodes <- read.csv("https://raw.githubusercontent.com/hdm-sr145/Royals/master/nodelang", header=T, as.is=T, sep = ",")
 
 # ruft das igraph-objekt roy auf
 roy <- graph.data.frame(el, nodes, directed=TRUE)
