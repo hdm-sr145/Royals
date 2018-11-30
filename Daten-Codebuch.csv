@@ -1,0 +1,22 @@
+,,
+,,
+,,
+,,
+Wert,Kommentar,
+edgelist,,
+from,"definiert den Sender in Netzwerken. Entspricht ID in der Nodelist. Keine Sonderzeichen, nur ein Wort",
+to ,"definiert den Empfänger in Netzwerken. Entspricht ID in der Nodelist. Keine Sonderzeichen, etc. ",
+relationship,Welche Positon hat der Knoten in dieser Organisation,
+weight,Gewichtung je nach Position in der Organisation:,
+,"Member, Trustee",1
+,"Honorary Member, Patron, Military Position ",2
+,"Patron in Chief, Colonel in Chief, President, Chairman, Founder",3
+nodelist,,
+name,"eindeutige Identifikation jedes einzelnen Knotens (vertex), der erfasst wird. Personen Großbuchstaben, Organisationen Kleinbuchstaben",
+title,Name oder Bezeichnung des Knotens. ,
+sex,dichotome Ausprägung: male oder female.,
+country 1,"Angabe, zu welchen Königshaus der Knoten gehört",
+line of succession,"Angabe, an welcher Stelle der Thronfolge der Knoten ist",
+religion,"Angabe, welche religiösen Glauben die Person hat",
+interests,"Angabe, welche Interessen die Person hat",
+type,"Organisation = 1 , Person= 0",
